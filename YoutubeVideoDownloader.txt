@@ -1,0 +1,23 @@
+def main():   
+    from pytube import YouTube
+    link=input()
+    yt=YouTube(link)
+    print(yt.title)
+    list=yt.streams.filter(progressive=True)
+    c=input("1.360p\n2.720p")
+    print(list)
+    x=input()
+    if len(list)>=2:
+        if c=="1":
+            z=list[0]
+            z.download(x)
+        if c=="2":
+            z=list[1]
+            z.download(x)
+    else:
+        z = list[0]
+        z.download(x)
+        print("sorry 720p is not available 360p is automatically dowloaded to the path")
+ 
+if __name__==__main__:
+    main()
